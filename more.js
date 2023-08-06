@@ -4,10 +4,7 @@
   var qq = parseInt(document.getElementById("qq").value);
   var token1 = tokenGenerator.token(username, qq);
   console.log(token1)
-  var tokenPart1 = token1.slice(0, 8);
-  var tokenPart2 = token1.slice(8);
-  var finaltoken = "QO-" + tokenPart1 + "-" + tokenPart2 + "-" + generateRandomNumber();
-  var url = "http://qoriginal.vip:8080/qo/upload/registry?name=" + encodeURIComponent(username) + "&uid=" + encodeURIComponent(qq) + "&token=" + finaltoken;
+  var url = "http://qoriginal.vip:8080/qo/upload/registry?name=" + encodeURIComponent(username) + "&uid=" + encodeURIComponent(qq) + "&token=" + token1;
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.onreadystatechange = function() {
